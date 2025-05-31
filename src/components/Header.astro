@@ -1,0 +1,27 @@
+---
+import { SITE_TITLE, SITE_NAVIGATION, SITE_ICONS } from "../consts";
+---
+
+<header class="py-6">
+  <nav class="flex justify-between items-center text-gray-400">
+    <h2><a class="text-lg" href="/">{SITE_TITLE}</a></h2>
+    <div class="flex gap-4 text-sm">
+      {
+        SITE_NAVIGATION.map((link) => (
+          <a class="hover:text-black" href={link.href} aria-label={link.ariaLabel}>
+            {link.text}
+          </a>
+        ))
+      }
+    </div>
+    <div class="flex gap-4">
+      {
+        SITE_ICONS.map((icon) => (
+          <a class="hover:text-black" href={icon.href} target={icon.target} aria-label={icon.ariaLabel}>
+            <span set:html={icon.svg} />
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,20 @@
+---
+import { SITE_ICONS } from "../consts";
+
+const today = new Date();
+---
+
+<footer class="py-6">
+ <div class="flex justify-between items-center text-gray-400">
+  <span>&copy; {today.getFullYear()} Kari Sakib. All rights reserved.</span>
+  <div class="flex items-center gap-4">
+      {
+        SITE_ICONS.map((icon) => (
+          <a class="hover:text-black" href={icon.href} target={icon.target} aria-label={icon.ariaLabel}>
+            <span set:html={icon.svg} />
+          </a>
+        ))
+      }
+  </div>
+   </div>
+</footer>
