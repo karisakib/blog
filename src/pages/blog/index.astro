@@ -20,8 +20,9 @@ const posts = (await getCollection("blog")).filter((post) => post.data.draft == 
   <body class="w-2xl mx-auto min-h-screen flex flex-col justify-between">
     <Header />
     <main class="flex flex-col justify-start grow">
-      <section>
-        <ul>
+     <h1 class="text-4xl pt-10 font-black">{"All my blog posts"}</h1>
+      <section class="py-10">
+        <ul class="flex flex-col gap-1 mt-6">
           {
             posts.map((post) => (
               <li class="my-4 flex flex-col gap-1">

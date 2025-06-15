@@ -7,7 +7,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, pubDate, updatedDate, tags } = Astro.props;
 ---
 
 <html lang="en">
@@ -15,19 +15,30 @@ const { title, description, pubDate, updatedDate } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <!-- bg-neutral-800 text-gray-400 -->
-  <body
-    class="w-2xl mx-auto min-h-screen bg-neutral-800 text-gray-400 flex flex-col justify-between"
-  ></body><Header />
-  <main class="flex flex-col justify-start grow">
-    <article class="py-10">
-      <div class="flex flex-col gap-4 py-10">
-       <h1 class="text-3xl text-red-400">{title}</h1>
-       <span>{description}</span>
-       <span class="">{(<FormattedDate date={pubDate} />)}</span>
-      </div>
-
-      <slot />
-    </article>
-  </main>
-  <Footer />
+  <body class="w-2xl mx-auto min-h-screen flex flex-col justify-between">
+    <Header />
+    <main class="flex flex-col justify-start grow">
+      <article class="py-10">
+        <div class="flex flex-col gap-4 py-10">
+          <h1 class="text-4xl pt-10 font-black">{title}</h1>
+          <span class="text-sm text-gray-400">
+            <FormattedDate date={pubDate} />
+          </span>
+          <div class="flex gap-2">
+            {
+              tags?.map((tag) => (
+                <span class="text-center lowercase text-xs border px-2 py-1 font-semibold border-gray-200 rounded-3xl">
+                  {tag}
+                </span>
+              ))
+            }
+          </div>
+          <!-- <span id="description" class="text-sm text-gray-600">{description}</span> -->
+          <!-- <span class="">{(<FormattedDate date={updatedDate} />)}</span> -->
+        </div>
+        <slot />
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>

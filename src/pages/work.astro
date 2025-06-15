@@ -12,16 +12,12 @@ import { SITE_TITLE, SITE_DESCRIPTION, SITE_WORK } from "../consts";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <!-- bg-neutral-800 text-gray-400 -->
-  <body
-    class="w-2xl mx-auto min-h-screen flex flex-col justify-between"
-  >
+  <body class="w-2xl mx-auto min-h-screen flex flex-col justify-between">
     <Header />
     <main class="flex flex-col justify-start grow">
-      <h1 class="text-3xl font-semibold">{SITE_DESCRIPTION}</h1>
-      <section>
-        <h2>My latest posts</h2>
-        <div>
-    <ul>
+     <h1 class="text-4xl pt-10 font-black">Gold Experience Requiem</h1>
+      <section class="py-10">
+        <ul class="flex flex-col gap-1 mt-6">
       {
         SITE_WORK.map((work) => (
           <li class="my-4">
@@ -34,8 +30,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, SITE_WORK } from "../consts";
           </li>
         ))
       }
-    </ul>
-        </div>
+        </ul>
       </section>
     </main>
     <Footer />
